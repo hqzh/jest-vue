@@ -27,3 +27,4 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+See [vue test utils](https://vue-test-utils.vuejs.org/zh/).
