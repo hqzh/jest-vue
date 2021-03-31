@@ -46,3 +46,5 @@ it('Header 样式发生改变提示', () => {
   const wrapper = shallowMount(Header)
   expect(wrapper).toMatchSnapshot()
 })
+
+// 走到这里发现。测试代码比业务代码还多，但是一旦需求复杂，后面迭代一个小功能，回归测试这下就方便了
