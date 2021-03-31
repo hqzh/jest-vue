@@ -1,6 +1,6 @@
 <template>
   <div >
-    <input type="text" data-test="input" v-model="inputValue" @keyup.enter="handleAdd">
+    <input type="text" data-test="input" v-model="inputValue" @keyup.enter="handleAdd" placeholder="请输入">
   </div>
 </template>
 

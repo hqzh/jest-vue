@@ -39,3 +39,9 @@ it('Header 中input框输入回车，有内容时，向外触发事件，同时�
   expect(wrapper.emitted().add).toBeTruthy()
   expect(wrapper.vm.$data.inputValue).toBe('')
 })
+
+it('Header 样式发生改变提示', () => {
+  // 比如加了一个class会提示
+  const wrapper = shallowMount(Header)
+  expect(wrapper).toMatchSnapshot()
+})
