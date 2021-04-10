@@ -1,17 +1,17 @@
 <template>
   <div >
     <Header @add="handleAdd"/>
-    <ul>
-        <li v-for="item in undoList" :key="item">{{item}}</li>
-    </ul>
+    <!-- 测试监听自定义事件较复杂，后面再讲 -->
+    <UndoList :list="undoList" @delete="handleDelete"/>
   </div>
 </template>
 
 <script>
 import Header from './Header.vue'
+import UndoList from './UndoList.vue'
 export default {
   name: 'TodoList',
-  components: { Header },
+  components: { Header, UndoList },
   data () {
     return {
       undoList: []
@@ -20,6 +20,9 @@ export default {
   methods: {
     handleAdd (value) {
       this.undoList.push(value)
+    },
+    handleDelete (index) {
+      this.undoList.splice(index, 1)
     }
   }
 }
