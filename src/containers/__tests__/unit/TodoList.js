@@ -27,10 +27,18 @@ describe('TodoList 组件', () => {
     // 上面注释的写法为集成测试，因为是测试了子组件，下面的才是组件内的单元测试
     const wrapper = shallowMount(TodoList)
     wrapper.setData({
-      undoList: [1, 2, 3]
+      undoList: [
+        { status: 'view', value: 1 },
+        { status: 'view', value: 2 },
+        { status: 'view', value: 3 }
+      ]
     })
     wrapper.vm.handleAdd(4)
-    expect(wrapper.vm.$data.undoList).toEqual([1, 2, 3, 4])
+    expect(wrapper.vm.$data.undoList).toEqual([{ status: 'view', value: 1 },
+      { status: 'view', value: 2 },
+      { status: 'view', value: 3 },
+      { status: 'view', value: 4 }
+    ])
   })
 
   it(' 调用UndoList，应该传递 list 参数', () => {
@@ -45,9 +53,16 @@ describe('TodoList 组件', () => {
   it(' 中 handleDelete方法被调用时，UndoList列表内容会减少一个', () => {
     const wrapper = shallowMount(TodoList)
     wrapper.setData({
-      undoList: [1, 2, 3]
+      undoList: [
+        { status: 'view', value: 1 },
+        { status: 'view', value: 2 },
+        { status: 'view', value: 3 }
+      ]
     })
     wrapper.vm.handleDelete(1)
-    expect(wrapper.vm.$data.undoList).toEqual([1, 3])
+    expect(wrapper.vm.$data.undoList).toEqual([
+      { status: 'view', value: 1 },
+      { status: 'view', value: 3 }
+    ])
   })
 })

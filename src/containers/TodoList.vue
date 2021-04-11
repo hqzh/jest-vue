@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     handleAdd (value) {
-      this.undoList.push(value)
+      this.undoList.push({ status: 'view', value })
     },
     handleDelete (index) {
       this.undoList.splice(index, 1)

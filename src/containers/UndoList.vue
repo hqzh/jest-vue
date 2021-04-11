@@ -6,7 +6,7 @@
         </div>
         <ol>
             <li v-for="(item, index) in list" :key="index" data-test="item">
-                {{ item
+                {{ item.value
                 }}<button
                     data-test="delete-button"
                     type="button"
