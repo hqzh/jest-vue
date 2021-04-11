@@ -1,11 +1,21 @@
 <template>
     <div>
-        <div data-test="count">{{ list.length }}</div>
-        <ul>
+        <div>
+            正在进行
+            <span data-test="count">{{ list.length }}</span>
+        </div>
+        <ol>
             <li v-for="(item, index) in list" :key="index" data-test="item">
-                {{ item }}<button data-test="delete-button" type="button" @click="handleDelete(index,$event)">X</button>
+                {{ item
+                }}<button
+                    data-test="delete-button"
+                    type="button"
+                    @click="handleDelete(index, $event)"
+                >
+                    X
+                </button>
             </li>
-        </ul>
+        </ol>
     </div>
 </template>
 
