@@ -65,6 +65,56 @@ describe('TodoList 组件', () => {
       { status: 'view', value: 3 }
     ])
   })
-})
+  // 到这里可以发现，数据结构变更要测试文件也业务文件两边都要改，可以发现这种测试只适合lodash这类库，不和业务耦合，只有传参、入参、返回之类
 
-// 到这里可以发现，数据结构变更要测试文件也业务文件两边都要改，可以发现这种测试只适合lodash这类库，不和业务耦合，只有传参、入参、返回之类
+  it(' 中 changeStatus方法被调用时，目标选项切换成输入框', () => {
+    const wrapper = shallowMount(TodoList)
+    wrapper.setData({
+      undoList: [
+        { status: 'view', value: 1 },
+        { status: 'view', value: 2 },
+        { status: 'view', value: 3 }
+      ]
+    })
+    wrapper.vm.changeStatus(1)
+    expect(wrapper.vm.$data.undoList).toEqual([
+      { status: 'view', value: 1 },
+      { status: 'edit', value: 2 },
+      { status: 'view', value: 3 }
+    ])
+  })
+
+  it(' 中 changeReset方法被调用时，目标选项切换成视图', () => {
+    const wrapper = shallowMount(TodoList)
+    wrapper.setData({
+      undoList: [
+        { status: 'view', value: 1 },
+        { status: 'edit', value: 2 },
+        { status: 'view', value: 3 }
+      ]
+    })
+    wrapper.vm.changeReset(1)
+    expect(wrapper.vm.$data.undoList).toEqual([
+      { status: 'view', value: 1 },
+      { status: 'view', value: 2 },
+      { status: 'view', value: 3 }
+    ])
+  })
+
+  it(' 中 changeItemValue方法被调用时，目标选项切换成视图', () => {
+    const wrapper = shallowMount(TodoList)
+    wrapper.setData({
+      undoList: [
+        { status: 'view', value: 1 },
+        { status: 'edit', value: 2 },
+        { status: 'view', value: 3 }
+      ]
+    })
+    wrapper.vm.changeItemValue({ index: 1, value: 2222 })
+    expect(wrapper.vm.$data.undoList).toEqual([
+      { status: 'view', value: 1 },
+      { status: 'edit', value: 2222 },
+      { status: 'view', value: 3 }
+    ])
+  })
+})
