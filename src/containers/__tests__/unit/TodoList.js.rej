@@ -1,3 +1,0 @@
-diff a/src/containers/__tests__/unit/TodoList.js b/src/containers/__tests__/unit/TodoList.js	(rejected hunks)
-@@ -3 +2,0 @@ import TodoList from '@/containers/TodoList'
--import Header from '@/containers/Header'

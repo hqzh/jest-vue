@@ -5,7 +5,7 @@
             <span data-test="count">{{ list.length }}</span>
         </div>
         <ol>
-            <li v-for="(item, index) in list" :key="index" data-test="item">
+            <li v-for="(item, index) in list" :key="index" data-test="list-item">
                 {{ item.value
                 }}<button
                     data-test="delete-button"

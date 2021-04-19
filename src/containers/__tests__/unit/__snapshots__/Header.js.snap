@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Header组件  样式发生改变提示 1`] = `<div><input type="text" data-test="input" placeholder="请输入"></div>`;
