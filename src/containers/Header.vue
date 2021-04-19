@@ -5,18 +5,25 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 export default {
   name: 'Header',
-  data () {
-    return {
-      inputValue: ''
+  computed: {
+    inputValue: {
+      get () {
+        return this.$store.state.inputValue
+      },
+      set (value) {
+        this.changeInputValue(value)
+      }
     }
   },
   methods: {
+    ...mapMutations(['changeInputValue']),
     handleAdd () {
       if (this.inputValue.length) {
         this.$emit('add', this.inputValue)
-        this.inputValue = ''
+        this.changeInputValue('')
       }
     }
   }
